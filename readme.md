@@ -1,8 +1,36 @@
-add categories => done
-make admin to add and delete books => done
-make book page to read the pages in the books => Very advanced cannot do it
-delete and update user info by making a profile page => next
-add cart to buy books using queries to send data to card database to add or delete the data or update the number of items in data => done
-in which on using 'add book'  we change useState of temp data storage and send it to backend database to store it in database in which we can add or delete it ; => done
-cd frontend npm run dev
+⚙️ Setup and Installation Clone the repository:
+
+bash
+
+git clone https://github.com/rhythmgoyal8/House-of-Books cd HouseofBooks Install dependencies:
+
+bash
+
+For backend
+cd backend npm install
+
+For frontend
+cd ../frontend npm install Configure environment variables:
+
+Create a .env file in the backend directory and add the following:
+
+env PORT=5000 MONGODB_URI=your_mongodb_connection_string
+
+bash
+
+Start backend server
 cd backend npm start
+
+Start frontend development server
+env VITE_BACKEND_URL = your deployed backend url or localhost url VITE_CONTACT_KEY = from emailjs VITE_CONTACT_SERVICE = from emailjs VITE_CONTACT_TEMPLATE = from emailjs cd ../frontend npm start The application will be accessible
+
+Save json data for books in mongo like this
+eg: ( { id: 3, name: "J.K. Rowling", title: "Harry Potter and the Sorcerer's Stone", price: 10.99, category: "Fantasy", image: "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg" } )
+
+📌 Future Enhancements Book Reading Feature: Implement an in-browser book reader to allow users to read books online.
+
+Enhanced Search: Integrate advanced search and filtering options.
+
+Payment Integration: Add payment gateway for purchasing books.
+
+User Reviews: Enable users to leave reviews and ratings for books.
