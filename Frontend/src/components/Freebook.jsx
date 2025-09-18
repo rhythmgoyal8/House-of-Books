@@ -12,6 +12,38 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function Freebook() {
   const [book, setBook] = useState([]);
+
+  const book1 = [
+    {
+      _id: "68c2b6c34341b3b3d86f29ab",
+      id: 1,
+      name: "George Orwell",
+      title: "1984",
+      price: 8.99,
+      category: "Dystopian",
+      image: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+    },
+    {
+      _id: "68c2b6c34341b3b3d86f29ac",
+      id: 2,
+      name: "Harper Lee",
+      title: "To Kill a Mockingbird",
+      price: 9.49,
+      category: "Classic",
+      image: "https://covers.openlibrary.org/b/id/8228691-L.jpg",
+    },
+    {
+      _id: "68c2b6c34341b3b3d86f29ad",
+      id: 3,
+      name: "J.K. Rowling",
+      title: "Harry Potter and the Sorcerer's Stone",
+      price: 10.99,
+      category: "Fantasy",
+      image: "https://covers.openlibrary.org/b/id/7984916-L.jpg",
+    },
+  ];
+
+
   useEffect(() => {
     const getBook = async () => {
       try {
@@ -71,14 +103,14 @@ function Freebook() {
         <div>
           <h1 className="font-semibold text-xl pb-2">Free Offered Courses</h1>
           <p>
-          Discover our diverse selection of books available for free in our online bookstore. From J.K. Rowling's enchanting 
-          "Harry Potter and the Sorcerer's Stone" to George Orwell's thought-provoking "1984"
+            Discover our diverse selection of books available for free in our online bookstore. From J.K. Rowling's enchanting
+            "Harry Potter and the Sorcerer's Stone" to George Orwell's thought-provoking "1984"
           </p>
         </div>
 
         <div>
           <Slider {...settings}>
-            {book.map((item) => (
+            {book1.map((item) => (
               <Cards item={item} key={item.id} />
             ))}
           </Slider>
