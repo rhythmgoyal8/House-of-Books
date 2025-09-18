@@ -1,33 +1,31 @@
 import Book from "../model/book.model.js";
 
-// export const search=async(req,res)=>{
-//     const input=req.query.q
-//     const book= await Book.findOne({name:input})
-//     if(!book){
-//         return res.status(404).send({message:"Book not found",input});
-//     }
-//     return res.status(400).send(book);
-
-// }
-
-// Controller function to handle search requests
-export const searchUsers = async (req, res) => {
+// ✅ renamed function from searchUsers → searchBooks
+export const searchBooks = async (req, res) => {
     try {
-        const name = req.query.name; // Get the query parameter 'name'
-        if (!name) {
-            return res.status(400).json({ error: 'Name query parameter is required' });
+        // ✅ changed query param from "name" → "q"
+        const query = req.query.q; 
+        if (!query) {
+            return res.status(400).json({ error: 'Query parameter q is required' });
         }
 
-        // Search for users with matching names (case-insensitive)
-        const users = await Book.find({ title: new RegExp(name, 'i') });
+        // ✅ changed variable "users" → "books"
+        // ✅ search both title & author (instead of only title)
+        const books = await Book.find({
+            $or: [
+                { title: new RegExp(query, 'i') },
+                { author: new RegExp(query, 'i') }
+            ]
+        });
 
-        // Log the results found
-        console.log('Users found:', users);
+        // ✅ updated log
+        console.log('Books found:', books);
 
-        if (users.length > 0) {
-            res.json(users);
+        if (books.length > 0) {
+            res.json(books);
         } else {
-            res.status(404).json({ message: 'No users found' });
+            // ✅ changed message from "No users found" → "No books found"
+            res.status(404).json({ message: 'No books found' });
         }
     } catch (err) {
         console.error('Error fetching data:', err);
