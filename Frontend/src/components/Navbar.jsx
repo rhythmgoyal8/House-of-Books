@@ -151,11 +151,33 @@ function Navbar() {
               </svg>
             </label>
 
-            <a href="/cart" className="hover:text-pink-500 dark:bg-slate-700 dark:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.34 2.02M7 13h10l4-8H5.34M7 13l-4 8h18m-9-8V6h4v3m0 0h3m-7-3v3H8V6h4zm1 6v3m0 0v2m0-2h3m-3 0H8" />
-                </svg>
-            </a>
+
+
+            
+
+            <Link
+            to="/cart"
+            className="hover:text-pink-500 dark:bg-slate-700 dark:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 3h2l.34 2.02M7 13h10l4-8H5.34M7 13l-4 8h18m-9-8V6h4v3m0 0h3m-7-3v3H8V6h4zm1 6v3m0 0v2m0-2h3m-3 0H8"
+              />
+            </svg>
+          </Link>
+
+
+
+
 
             {authUser ? (
               <Logout />
